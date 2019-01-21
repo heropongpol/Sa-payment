@@ -1,0 +1,82 @@
+<html>
+<body class="cen">
+<font class="a">หมายเลขการจอง</font>
+<mat-form-field style="width: 10%;">
+  <mat-select placeholder="หมายเลขการจอง" [(ngModel)]="rentSelect" name="reservation_id">
+    <mat-option>None</mat-option>
+    <mat-option *ngFor="let rent of rents" [value]="rent.reservation_id" >
+      {{rent.reservation_id}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
+
+<font class="a">ราคาที่ต้องการชำระ</font>
+<mat-form-field class="a" style="width: 10%;">
+  <input matInput #input maxlength="5" [(ngModel)]="payment_total" [ngModelOptions]="{standalone: true}" type="text">
+</mat-form-field>
+
+<br>
+
+<font class="a">ประเภทบัตร</font>
+<mat-form-field style="width: 10%;">
+  <mat-select placeholder="ประเภทบัตร" [(ngModel)]="cardSelect" name="card_type">
+    <mat-option>None</mat-option>
+    <mat-option *ngFor="let a of cardtypes" [value]="a.id" >
+      {{a.card_type}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br>
+<font class="a">หมายเลขบัตร</font>
+
+<mat-form-field class="a"style="width: 10%;">
+  <input matInput #input maxlength="16" [(ngModel)]="card_id" [ngModelOptions]="{standalone: true}" type="text">
+</mat-form-field>
+
+<br>
+<font class="a">Card expiration</font>
+<mat-form-field class="a" style="width: 10%;">
+  <input matInput #input maxlength="5" [(ngModel)]="card_exp" [ngModelOptions]="{standalone: true}" type="text">
+</mat-form-field>
+
+<br>
+<font class="a">ชื่อเจ้าของบัตร</font>
+<mat-form-field class="a" style="width: 10%;">
+  <input matInput [(ngModel)]="card_name" [ngModelOptions]="{standalone: true}" type="text">
+</mat-form-field>
+<br>
+<font class="a">CVV/CID</font>
+<mat-form-field class="a" style="width: 10%;">
+  <input matInput #input maxlength="3" [(ngModel)]="card_cvv" [ngModelOptions]="{standalone: true}" type="number">
+</mat-form-field>
+<br>
+<font class="a">ธนาคารผู้ออกบัตร</font> <mat-form-field style="width: 10%;">
+  <mat-select  [(ngModel)]="cardbankSelect" name="card_bank">
+    <mat-option>None</mat-option>
+    <mat-option *ngFor="let a of cbs" [value]="a.id" >
+      {{a.card_bank}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
+<mat-form-field style="width: 10%;">
+  <mat-select placeholder="ผู้รับเงิน" [(ngModel)]="empSelect" name="employee_id">
+    <mat-option>None</mat-option>
+    <mat-option *ngFor="let emp of emps" [value]="emp.employee_id" >
+      {{emp.employee_name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
+<br>
+<br>
+<br>
+
+<button mat-fab color="primary"  class="enter" (click)= "insert()">Enter</button>
+</body>
+</html>
+
+
+
